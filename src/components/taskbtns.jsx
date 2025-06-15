@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Thetaskcontext } from "./taskContext";
 import { Link } from "react-router";
-import { Edit, Trash2, X, Save } from "lucide-react";
+import { Edit, Trash2, X, Save, CalendarDays } from "lucide-react";
 
 const Taskbtns = ({ item }) => {
   const { task, setTask, update, setUpdate } = useContext(Thetaskcontext);
@@ -31,27 +31,24 @@ const Taskbtns = ({ item }) => {
         </button>
       </div>
 
-      {/* Modern Modal */}
-      <dialog id="my_modal_2" className="modal ">
+      <dialog id="my_modal_2" className="modal">
         <div className="modal-box relative mx-auto bg-white rounded-2xl shadow-2xl border-0 p-0 overflow-hidden">
-          {/* <div className="  text-white"> */}
-            <div className=" px-6 py-4 flex items-center justify-between">
-              <h3 className="text-xl font-semibold flex items-center gap-2 text-gray-900">
-                <Edit className="w-5 h-5 " />
-                Edit Task
-              </h3>
-              <form method="dialog">
-                <button 
-                  type="submit"
-                  className="p-1 hover:bg-white/20 rounded-full transition-colors"
-                  title="Close"
-                >
-                  <X className="w-5 h-5 text-gray-900" />
-                </button>
-              </form>
-            {/* </div> */}
+          <div className="px-6 py-4 flex items-center justify-between">
+            <h3 className="text-xl font-semibold flex items-center gap-2 text-gray-900">
+              <Edit className="w-5 h-5" />
+              Edit Task
+            </h3>
+            <form method="dialog">
+              <button
+                type="submit"
+                className="p-1 hover:bg-white/20 rounded-full transition-colors"
+                title="Close"
+              >
+                <X className="w-5 h-5 text-gray-900" />
+              </button>
+            </form>
           </div>
-          {/* Content */}
+
           <div className="p-6">
             <div className="space-y-4">
               <div>
@@ -63,15 +60,29 @@ const Taskbtns = ({ item }) => {
                   onChange={(e) => {
                     setUpdate({ ...update, theTAsk: e.target.value });
                   }}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-xl  focus:ring-blue-500  transition-all duration-200 resize-none  text-gray-800 placeholder-gray-400"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-blue-500 transition-all duration-200 text-gray-800 placeholder-gray-400"
                   placeholder="Enter your task description..."
-                  rows={3}
                 />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Due Date
+                </label>
+                <div className="relative">
+                  <input
+                    type="date"
+                    value={update.date || ""}
+                    onChange={(e) => {
+                      setUpdate({ ...update, date: e.target.value });
+                    }}
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-blue-500 transition-all duration-200 text-gray-800"
+                  />
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Footer */}
           <div className="bg-gray-50 px-6 py-4 flex gap-3 justify-end">
             <form method="dialog">
               <button
@@ -91,16 +102,13 @@ const Taskbtns = ({ item }) => {
                     )
                   );
                 }}
-                className="px-6 py-2  text-gray-900 rounded-lg font-medium flex items-center gap-2  hover:text-gray-800 hover:bg-gray-200"
+                className="px-6 py-2 text-gray-900 rounded-lg font-medium flex items-center gap-2 hover:text-gray-800 hover:bg-gray-200"
               >
-                <Save className="w-4 h-4" />
                 Save Changes
               </button>
             </form>
           </div>
         </div>
-
-        {/* Backdrop */}
       </dialog>
     </>
   );

@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Thetaskcontext } from "./taskContext";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import "./AddTask.css"; // Import the CSS file
+import "./addTask.css"; // Import the CSS file
 import { Plus } from "lucide-react";
 
 const AddTask = () => {

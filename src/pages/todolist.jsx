@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { Thetaskcontext } from "../components/taskContext";
 import AddTask from "../components/addTask";
-import "./Todolist.css";
+import "./todolist.css";
 import { Outlet } from "react-router";
 import { Link, NavLink } from "react-router";
 import {

@@ -1,0 +1,91 @@
+body {
+  margin: 0;
+}
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+}
+
+/* Previous styles remain the same until .nav-item */
+
+.nav-item {
+  padding: 12px 15px;
+  color: #ecf0f1;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-item.active {
+  background-color: rgba(52, 152, 219, 0.2);
+  color: #3498db;
+  font-weight: 500;
+}
+
+.nav-item.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background-color: #3498db;
+  border-radius: 4px 0 0 4px;
+}
+
+/* Rest of the styles remain the same */
+
+.nav-item span {
+  margin-left: 10px;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid #34495e;
+}
+
+.user-info h4 {
+  margin: 0;
+  color: #ecf0f1;
+}
+
+.user-info p {
+  margin: 5px 0 0 0;
+  color: #bdc3c7;
+  font-size: 12px;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #ecf0f1;
+}
+
+.main-content h1 {
+  text-align: center;
+  color: #2c3e50;
+}

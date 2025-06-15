@@ -1,22 +1,21 @@
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
-import React, { useState, useContext, useEffect } from "react";
-import "./calender.css";
+import React, { useContext, useMemo } from "react";
 import { Thetaskcontext } from "./taskContext";
+import "./calender.css";
+
 export default function Calendar() {
   const { task } = useContext(Thetaskcontext);
 
-  const [events, setEvents] = useState([]);
-
-  console.log(events);
-  useEffect(() => {
-    const newEvents = task.map((item) => ({
+  const events = useMemo(() => {
+    return task.map((item) => ({
       title: item.theTAsk,
       date: item.date,
+      id: item.id || `${item.theTAsk}-${item.date}`,
+      backgroundColor: item.done ? "#4CAF50" : "#3a87ad", // Green for done, blue for not done
+      borderColor: item.done ? "#388e3c" : "#2c6da0", // Darker shade for border
     }));
-
-    setEvents(newEvents);
   }, [task]);
 
   return (
@@ -25,6 +24,16 @@ export default function Calendar() {
         plugins={[dayGridPlugin, interactionPlugin]}
         initialView="dayGridMonth"
         events={events}
+        eventDisplay="block"
+        eventContent={(eventInfo) => (
+          <div
+            className={`fc-event-main ${
+              eventInfo.event.extendedProps.isDone ? "done-event" : ""
+            }`}
+          >
+            {eventInfo.event.title}
+          </div>
+        )}
       />
     </div>
   );

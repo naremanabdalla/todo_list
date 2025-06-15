@@ -88,7 +88,6 @@ const AddTask = () => {
                         theTAsk: addtask,
                         done: false,
                         update: false,
-                        delete: false,
                         date: formattedDate,
                       },
                     ]);

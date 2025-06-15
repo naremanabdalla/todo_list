@@ -17,6 +17,7 @@
   text-transform: capitalize !important;
   border-radius: 6px !important;
   padding: 6px 12px !important;
+  margin: 50px;
 }
 
 .fc-button-active {
@@ -52,6 +53,12 @@
 
 .fc-event:hover {
   opacity: 0.9;
+}
+
+.fc .fc-button-group > .fc-button {
+  flex: 1 1 auto;
+  position: relative;
+  margin-right: 10px;
 }
 
 @media (max-width: 768px) {

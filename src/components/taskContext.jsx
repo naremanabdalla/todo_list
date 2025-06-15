@@ -1,19 +1,18 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 export const Thetaskcontext = createContext();
 const TaskContext = ({ children }) => {
-  const [task, setTask] = React.useState([
-    // {
-    //   id: 1,
-    //   theTAsk: "addtasknotdone",
-    //   done: false,
-    //   update: false,
-    //   delete: false,
-    // },
-    // { id: 2, theTAsk: "addtaskdone", done: true, update: false, delete: false },
-  ]);
+  const [task, setTask] = React.useState(() => {
+    const savecart = localStorage.getItem("Tasks");
+    return savecart ? JSON.parse(savecart) : [];
+  });
   const [thetask, setThetask] = React.useState([]);
 
   const [update, setUpdate] = useState({});
+
+  useEffect(() => {
+    console.log(task);
+    localStorage.setItem("Tasks", JSON.stringify(task));
+  }, [task]);
   return (
     <div>
       <Thetaskcontext.Provider

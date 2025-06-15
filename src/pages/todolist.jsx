@@ -3,22 +3,14 @@ import { Thetaskcontext } from "../components/taskContext";
 import AddTask from "../components/addTask";
 import "./todolist.css";
 import { Outlet } from "react-router";
-import { Link, NavLink } from "react-router";
-import {
-  Calendar,
-  Plus,
-  CheckCircle,
-  Circle,
-  Clock,
-  List,
-  Menu,
-  X,
-} from "lucide-react";
+import { NavLink, useLocation } from "react-router";
+import { Calendar, CheckCircle, Circle, List, Menu, X } from "lucide-react";
 
 const Todolist = () => {
   const { task, setThetask } = useContext(Thetaskcontext);
   const [applay, setApply] = React.useState("all");
   const [openmenue, setOpenmenue] = React.useState(true);
+  const location = useLocation();
 
   let handelnotdone = task.filter((item) => {
     return item.done == false;
@@ -36,6 +28,10 @@ const Todolist = () => {
       setThetask(task);
     }
   }, [applay, task, setThetask]);
+
+  useEffect(() => {
+    setOpenmenue(true);
+  }, [location]);
   return (
     <div className={`app-container  relative  `}>
       <button

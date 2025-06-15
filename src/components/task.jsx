@@ -11,20 +11,8 @@ const Task = () => {
         return (
           <div
             key={index}
-            // className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 mb-4 flex justify-between
-            // lg:w-3/4 xl:w-2/3 mx-auto"
             className="border-b border-gray-200 p-4 hover:bg-gray-50 transition-colors flex justify-between "
           >
-            {/* <div
-            // style={{
-            //   display: "flex",
-            //   justifyContent: "center",
-            //   color: "white",
-            //   backgroundColor: "darkblue",
-            //   margin: "10px",
-            // }}
-            > */}
-
             <div className="flex  ">
               <button>
                 {item.done && (

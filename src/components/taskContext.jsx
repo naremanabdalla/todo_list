@@ -10,7 +10,6 @@ const TaskContext = ({ children }) => {
   const [update, setUpdate] = useState({});
 
   useEffect(() => {
-    console.log(task);
     localStorage.setItem("Tasks", JSON.stringify(task));
   }, [task]);
   return (

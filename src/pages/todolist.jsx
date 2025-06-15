@@ -109,15 +109,6 @@ const Todolist = () => {
               setApply("calendar");
             }}
           >
-            {/* <button
-              onClick={() => {
-                setApply("calendar");
-              }}
-              className="w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors  hover:bg-gray-100"
-             
-            >
-            </button> */}
-
             <Calendar className="w-5 h-5 text-purple-500" />
 
             <span className="font-medium text-gray-700">Calendar</span>
@@ -129,8 +120,6 @@ const Todolist = () => {
       </div>
 
       <div className="main-content ">
-        {/* <h1 className="text-2xl">TO DO LIST</h1> */}
-        {/* <Task task={filter} /> */}
         <div className="mt-10 lg:mt-1 bg-white rounded-lg shadow-sm border border-gray-200 ">
           <div className="p-6 border-b border-gray-200">
             <h2 className="text-lg font-semibold text-gray-800 capitalize">
